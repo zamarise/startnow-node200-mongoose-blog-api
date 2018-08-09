@@ -1,8 +1,9 @@
-// Imports mongoose and extracts Schema into it's own variable
+// Imports mongoose and extracts Schema and ObjectId into it's own variables
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
-// Creates a new Mongoose Schema with two properties
+// Creates a new Mongoose Schema
 const UserSchema = new Schema({
   // firstName property is a string and required
   firstName: { type: String, required: true },
@@ -14,7 +15,9 @@ const UserSchema = new Schema({
     facebook: { type: String, required: false },
     twitter: { type: String, required: false },
     linkedIn: { type: String, required: false }
-  }
+  },
+
+  blogs: [{ type: ObjectId, ref: 'Blog' }]
 });
 
 module.exports = mongoose.model('User', UserSchema);
