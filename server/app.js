@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 mongoose.connect(
   'mongodb://127.0.0.1:27017/my-blog',
-  { useMongoClient: true }
+  { useNewUrlParser: true }
 );
 mongoose.Promise = Promise;
 
